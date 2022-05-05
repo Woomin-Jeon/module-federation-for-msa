@@ -9,9 +9,11 @@
     "clean": "rm -rf build"
   },
   "dependencies": {
+    "@module-federation/store": "workspace:^",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "recoil": "^0.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

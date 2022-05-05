@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 
+const { dependencies } = require('./package.json');
+
 module.exports = () => ({
   entry: {
     index: './src/index.tsx',
@@ -34,7 +36,21 @@ module.exports = () => ({
     new ModuleFederationPlugin({
       name: 'app2',
       filename: 'app2.js',
-      exposes: { './App': './src/App' },
+      exposes: { './App2': './src/App2' },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: dependencies.react,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: dependencies['react-dom'],
+        },
+        recoil: {
+          singleton: true,
+          requiredVersion: dependencies.recoil,
+        },
+      },
     }),
   ],
   devServer: {
