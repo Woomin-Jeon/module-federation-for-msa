@@ -32,14 +32,13 @@ module.exports = () => ({
       filename: 'index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        app1: 'app1@http://localhost:9000/app1.js',
-      },
+      name: 'app1',
+      filename: 'app1.js',
+      exposes: { './App': './src/App' },
     }),
   ],
   devServer: {
-    port: 8000,
+    port: 9000,
     historyApiFallback: {
       index: './src/index.html',
     },
