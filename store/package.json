@@ -2,9 +2,10 @@
   "name": "@module-federation/store",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen:types": "tsc --emitDeclarationOnly"
   },
   "keywords": [],
   "author": "",
