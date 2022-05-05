@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "container",
-    "app1"
+    "app1",
+    "app2"
   ]
 }
