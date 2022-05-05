@@ -1478,6 +1478,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@module-federation/container@workspace:container":
+  version: 0.0.0-use.local
+  resolution: "@module-federation/container@workspace:container"
+  dependencies:
+    "@babel/cli": ^7.16.0
+    "@babel/core": ^7.16.5
+    "@babel/preset-env": ^7.16.5
+    "@babel/preset-react": ^7.16.5
+    "@babel/preset-typescript": ^7.16.5
+    "@types/react": ^18.0.8
+    "@types/react-dom": ^18.0.3
+    "@types/react-router-dom": ^5.3.3
+    "@typescript-eslint/eslint-plugin": latest
+    "@typescript-eslint/parser": latest
+    babel-loader: ^8.2.3
+    eslint: ^8.2.0
+    eslint-config-airbnb: latest
+    eslint-import-resolver-webpack: ^0.13.2
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+    html-webpack-plugin: ^5.5.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+    react-router-dom: ^6.3.0
+    typescript: ^4.5.2
+    webpack: ^5.64.1
+    webpack-cli: ^4.9.1
+    webpack-dev-server: ^4.7.2
+  languageName: unknown
+  linkType: soft
+
 "@nicolo-ribaudo/chokidar-2@npm:2.1.8-no-fsevents.3":
   version: 2.1.8-no-fsevents.3
   resolution: "@nicolo-ribaudo/chokidar-2@npm:2.1.8-no-fsevents.3"
@@ -3557,7 +3590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.32.0 || ^8.2.0":
+"eslint@npm:^8.2.0":
   version: 8.14.0
   resolution: "eslint@npm:8.14.0"
   dependencies:
@@ -5210,39 +5243,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"module-federation@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "module-federation@workspace:."
-  dependencies:
-    "@babel/cli": ^7.16.0
-    "@babel/core": ^7.16.5
-    "@babel/preset-env": ^7.16.5
-    "@babel/preset-react": ^7.16.5
-    "@babel/preset-typescript": ^7.16.5
-    "@types/react": ^18.0.8
-    "@types/react-dom": ^18.0.3
-    "@types/react-router-dom": ^5.3.3
-    "@typescript-eslint/eslint-plugin": latest
-    "@typescript-eslint/parser": latest
-    babel-loader: ^8.2.3
-    eslint: ^7.32.0 || ^8.2.0
-    eslint-config-airbnb: latest
-    eslint-import-resolver-webpack: ^0.13.2
-    eslint-plugin-import: ^2.25.3
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-react: ^7.28.0
-    eslint-plugin-react-hooks: ^4.3.0
-    html-webpack-plugin: ^5.5.0
-    react: ^18.1.0
-    react-dom: ^18.1.0
-    react-router-dom: ^6.3.0
-    typescript: ^4.5.2
-    webpack: ^5.64.1
-    webpack-cli: ^4.9.1
-    webpack-dev-server: ^4.7.2
-  languageName: unknown
-  linkType: soft
-
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -6140,6 +6140,12 @@ __metadata:
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
   languageName: node
   linkType: hard
+
+"root-workspace-0b6124@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root-workspace-0b6124@workspace:."
+  languageName: unknown
+  linkType: soft
 
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
