@@ -1,7 +1,15 @@
 import React from 'react';
 
-const App: React.FC = () => (
-  <h1>App1</h1>
+interface Props {
+  containerLocalState: number
+  handleContainerLocalState: () =>void
+}
+
+const App: React.FC<Props> = ({ containerLocalState, handleContainerLocalState }) => (
+  <div>
+    <div>{`Container LocalState: ${containerLocalState}`}</div>
+    <button type="button" onClick={handleContainerLocalState}>Container LocalState +1</button>
+  </div>
 );
 
 export default App;

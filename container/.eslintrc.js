@@ -25,5 +25,6 @@ module.exports = {
   rules: {
     'react/function-component-definition': 'off',
     'react/jsx-filename-extension': 'off',
+    'no-use-before-define': 'off',
   },
 };
