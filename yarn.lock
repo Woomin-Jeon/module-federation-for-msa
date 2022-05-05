@@ -1631,6 +1631,7 @@ __metadata:
     "@babel/preset-env": ^7.16.5
     "@babel/preset-react": ^7.16.5
     "@babel/preset-typescript": ^7.16.5
+    "@module-federation/store": "workspace:^"
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
     "@types/react-router-dom": ^5.3.3
@@ -1648,6 +1649,7 @@ __metadata:
     react: ^18.1.0
     react-dom: ^18.1.0
     react-router-dom: ^6.3.0
+    recoil: ^0.7.2
     typescript: ^4.5.2
     webpack: ^5.64.1
     webpack-cli: ^4.9.1
@@ -1664,6 +1666,7 @@ __metadata:
     "@babel/preset-env": ^7.16.5
     "@babel/preset-react": ^7.16.5
     "@babel/preset-typescript": ^7.16.5
+    "@module-federation/store": "workspace:^"
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
     "@types/react-router-dom": ^5.3.3
@@ -1681,6 +1684,7 @@ __metadata:
     react: ^18.1.0
     react-dom: ^18.1.0
     react-router-dom: ^6.3.0
+    recoil: ^0.7.2
     typescript: ^4.5.2
     webpack: ^5.64.1
     webpack-cli: ^4.9.1
@@ -1699,6 +1703,7 @@ __metadata:
     "@babel/preset-typescript": ^7.16.5
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
+    "@module-federation/store": "workspace:^"
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
     "@types/react-router-dom": ^5.3.3
@@ -1717,10 +1722,29 @@ __metadata:
     react: ^18.1.0
     react-dom: ^18.1.0
     react-router-dom: ^6.3.0
+    recoil: ^0.7.2
     typescript: ^4.5.2
     webpack: ^5.64.1
     webpack-cli: ^4.9.1
     webpack-dev-server: ^4.7.2
+  languageName: unknown
+  linkType: soft
+
+"@module-federation/store@workspace:^, @module-federation/store@workspace:store":
+  version: 0.0.0-use.local
+  resolution: "@module-federation/store@workspace:store"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": latest
+    "@typescript-eslint/parser": latest
+    eslint: ^8.2.0
+    eslint-config-airbnb: latest
+    eslint-import-resolver-webpack: ^0.13.2
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+    recoil: ^0.7.2
+    typescript: ^4.5.2
   languageName: unknown
   linkType: soft
 
@@ -4403,6 +4427,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hamt_plus@npm:1.0.2":
+  version: 1.0.2
+  resolution: "hamt_plus@npm:1.0.2"
+  checksum: af26ea32db03009019cc83dfa9411521a2fa16079443de1a502c9be46d8b3c975acda8ed93fc5750ef08d3186d35901e2d8cfe717dd54bea67b358601fa74e4c
+  languageName: node
+  linkType: hard
+
 "handle-thing@npm:^2.0.0":
   version: 2.0.1
   resolution: "handle-thing@npm:2.0.1"
@@ -6223,6 +6254,22 @@ __metadata:
   dependencies:
     resolve: ^1.9.0
   checksum: 2a04aab4e28c05fcd6ee6768446bc8b859d8f108e71fc7f5bcbc5ef25e53330ce2c11d10f82a24591a2df4c49c4f61feabe1fd11f844c66feedd4cd7bb61146a
+  languageName: node
+  linkType: hard
+
+"recoil@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "recoil@npm:0.7.2"
+  dependencies:
+    hamt_plus: 1.0.2
+  peerDependencies:
+    react: ">=16.13.1"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 2ad0c2052fd33ee358e3b448fd36ea6d4b37e69ace65ff44124605171c4794e4f167215209731aac3d45d42ea9f4c67e9c5a0704ff04ab94b64bcca96d5f59a3
   languageName: node
   linkType: hard
 

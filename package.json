@@ -3,6 +3,7 @@
   "workspaces": [
     "container",
     "app1",
-    "app2"
+    "app2",
+    "store"
   ]
 }
