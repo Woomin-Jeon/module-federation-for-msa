@@ -7,6 +7,9 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
   ],
+  settings: {
+    'import/resolver': 'webpack',
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -20,6 +23,10 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/function-component-definition': 'off',
+    'react/jsx-filename-extension': 'off',
+    'no-use-before-define': 'off',
     'import/prefer-default-export': 'off',
+    'no-console': 'off',
   },
 };
