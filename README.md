@@ -31,11 +31,13 @@
 ## Getting Started
 
 ```
-$ yarn
-
+>>> development mode
+terminal0: $ yarn
 terminal1: $ yarn workspace @module-federation/container start
 terminal2: $ yarn workspace @module-federation/app1 start
 terminal3: $ yarn workspace @module-federation/app2 start
-
 open http://localhost:8000
+
+>>> production mode
+$ yarn build
 ```
