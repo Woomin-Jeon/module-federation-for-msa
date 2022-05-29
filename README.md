@@ -6,6 +6,8 @@
 - 하지만 프로젝트를 분리하게 되면 프로젝트 간의 상태를 공유할 수 없음
 - Webpack 5에서 제공하는 Module Federation으로 해결하면 어떨까?
 
+<img width="500px" src="https://user-images.githubusercontent.com/59194356/170876635-8cfeb6cc-b8c5-4a7a-838e-b6472fe42c0b.png" />
+
 ## 패키지
 
 ### @module-federation/store
