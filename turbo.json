@@ -2,18 +2,23 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "@module-federation/container#build"]
     },
-    "build:container": {
-      "dependsOn": ["build:app1", "build:app2"],
+    "@module-federation/container#build": {
+      "dependsOn": [
+        "@module-federation/app1#build",
+        "@module-federation/app2#build"
+      ],
       "outputs": ["build/**"],
       "cache": true
     },
-    "build:app1": {
+    "@module-federation/app1#build": {
+      "dependsOn": [],
       "outputs": ["build/**"],
       "cache": true
     },
-    "build:app2": {
+    "@module-federation/app2#build": {
+      "dependsOn": [],
       "outputs": ["build/**"],
       "cache": true
     }

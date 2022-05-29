@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "yarn clean && webpack --config ./webpack.config.js",
+    "build": "yarn clean && webpack --config ./webpack.config.js --mode production",
     "clean": "rm -rf build"
   },
   "dependencies": {

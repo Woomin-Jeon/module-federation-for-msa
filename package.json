@@ -7,10 +7,7 @@
     "store"
   ],
   "scripts": {
-    "build": "yarn turbo run build",
-    "build:container": "yarn workspace @module-federation/container build",
-    "build:app1": "yarn workspace @module-federation/app2 build",
-    "build:app2": "yarn workspace @module-federation/app2 build"
+    "build": "turbo run build"
   },
   "devDependencies": {
     "turbo": "^1.2.14"

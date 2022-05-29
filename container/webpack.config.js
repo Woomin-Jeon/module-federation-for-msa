@@ -10,47 +10,51 @@ const {
   MODULE_FEDERATION_PLUGIN_CONFIG,
 } = require('../bundle.config');
 
-module.exports = (_, env) => ({
-  entry: {
-    index: './src/index.tsx',
-  },
-  output: {
-    path: path.resolve(__dirname, BUILD_FILE_RELATIVE_PATH),
-    filename: '[name].js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: require.resolve('babel-loader'),
-        exclude: /node_modules/,
+module.exports = (_, env) => {
+  const IS_PROD = env.mode === 'production';
+
+  return ({
+    entry: {
+      index: './src/index.tsx',
+    },
+    output: {
+      path: path.resolve(__dirname, BUILD_FILE_RELATIVE_PATH),
+      filename: '[name].js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: require.resolve('babel-loader'),
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        '@src': path.resolve(__dirname, 'src'),
       },
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: 'index.html',
+      }),
+      new CopyWebpackPlugin({
+        ...COPY_PLUGIN_CONFIG(),
+      }),
+      new ModuleFederationPlugin({
+        name: 'container',
+        ...MODULE_FEDERATION_PLUGIN_CONFIG(env.mode),
+      }),
     ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {
-      '@src': path.resolve(__dirname, 'src'),
+    devServer: {
+      port: APP_CONTAINER_PORT,
+      historyApiFallback: {
+        index: './src/index.html',
+      },
     },
-  },
-  devtool: 'inline-source-map',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-    }),
-    new CopyWebpackPlugin({
-      ...COPY_PLUGIN_CONFIG(),
-    }),
-    new ModuleFederationPlugin({
-      name: 'container',
-      ...MODULE_FEDERATION_PLUGIN_CONFIG(env.mode),
-    }),
-  ],
-  devServer: {
-    port: APP_CONTAINER_PORT,
-    historyApiFallback: {
-      index: './src/index.html',
-    },
-  },
-});
+    ...(IS_PROD ? {} : { devtool: 'inline-source-map' }),
+  });
+};
