@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 
@@ -33,11 +34,17 @@ module.exports = () => ({
       template: './src/index.html',
       filename: 'index.html',
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: '../app1/build', to: 'build_app1' },
+        { from: '../app2/build', to: 'build_app2' },
+      ],
+    }),
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        app1: 'app1@http://localhost:9000/app1.js',
-        app2: 'app2@http://localhost:9100/app2.js',
+        app1: 'app1@./build_app1/app1.js',
+        app2: 'app2@./build_app2/app2.js',
       },
       shared: {
         react: {

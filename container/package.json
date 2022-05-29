@@ -30,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "latest",
     "eslint-import-resolver-webpack": "^0.13.2",
