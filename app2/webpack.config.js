@@ -2,14 +2,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 
-const { dependencies } = require('./package.json');
+const {
+  BUILD_FILE_RELATIVE_PATH,
+  APP_2_NAME,
+  APP_2_PORT,
+  MODULE_FEDERATION_PLUGIN_CONFIG,
+} = require('../bundle.config');
 
 module.exports = () => ({
   entry: {
     index: './src/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, BUILD_FILE_RELATIVE_PATH),
     filename: '[name].js',
   },
   module: {
@@ -34,31 +39,14 @@ module.exports = () => ({
       filename: 'index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'app2',
-      filename: 'app2.js',
+      name: APP_2_NAME,
+      filename: `${APP_2_NAME}.js`,
       exposes: { './App2': './src/App2' },
-      shared: {
-        react: {
-          singleton: true,
-          requiredVersion: dependencies.react,
-        },
-        'react-dom': {
-          singleton: true,
-          requiredVersion: dependencies['react-dom'],
-        },
-        recoil: {
-          singleton: true,
-          requiredVersion: dependencies.recoil,
-        },
-        '@module-federation/store': {
-          singleton: true,
-          requiredVersion: '1.0.0',
-        },
-      },
+      shared: MODULE_FEDERATION_PLUGIN_CONFIG().shared,
     }),
   ],
   devServer: {
-    port: 9100,
+    port: APP_2_PORT,
     historyApiFallback: {
       index: './src/index.html',
     },

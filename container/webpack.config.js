@@ -3,14 +3,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const { ModuleFederationPlugin } = require('webpack').container;
 
-const { dependencies } = require('./package.json');
+const {
+  BUILD_FILE_RELATIVE_PATH,
+  APP_CONTAINER_PORT,
+  COPY_PLUGIN_CONFIG,
+  MODULE_FEDERATION_PLUGIN_CONFIG,
+} = require('../bundle.config');
 
-module.exports = () => ({
+module.exports = (_, env) => ({
   entry: {
     index: './src/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, BUILD_FILE_RELATIVE_PATH),
     filename: '[name].js',
   },
   module: {
@@ -35,39 +40,15 @@ module.exports = () => ({
       filename: 'index.html',
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        { from: '../app1/build', to: 'build_app1' },
-        { from: '../app2/build', to: 'build_app2' },
-      ],
+      ...COPY_PLUGIN_CONFIG(),
     }),
     new ModuleFederationPlugin({
       name: 'container',
-      remotes: {
-        app1: 'app1@./build_app1/app1.js',
-        app2: 'app2@./build_app2/app2.js',
-      },
-      shared: {
-        react: {
-          singleton: true,
-          requiredVersion: dependencies.react,
-        },
-        'react-dom': {
-          singleton: true,
-          requiredVersion: dependencies['react-dom'],
-        },
-        recoil: {
-          singleton: true,
-          requiredVersion: dependencies.recoil,
-        },
-        '@module-federation/store': {
-          singleton: true,
-          requiredVersion: '1.0.0',
-        },
-      },
+      ...MODULE_FEDERATION_PLUGIN_CONFIG(env.mode),
     }),
   ],
   devServer: {
-    port: 8000,
+    port: APP_CONTAINER_PORT,
     historyApiFallback: {
       index: './src/index.html',
     },
