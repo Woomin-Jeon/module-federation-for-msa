@@ -1,4 +1,10 @@
-# Module Federation을 이용한 MSA 구현하기
+# Module Federation을 이용한 MSA
+
+## 구현 동기
+
+- 점점 커지는 프로젝트를 나눠서 관리하고 싶은 니즈
+- 하지만 프로젝트를 분리하게 되면 프로젝트 간의 상태를 공유할 수 없음
+- Webpack 5에서 제공하는 Module Federation으로 해결하면 어떨까?
 
 ## 패키지
 
@@ -25,6 +31,8 @@
 
 - `container`의 local state를 `app1`과 `app2`이 props로 주입받아서 사용 가능
 - `store`에서 관리되는 global state를 `container`, `app1`, `app2`가 모두 공유하여 사용 가능
+- `CopyWebpackPlugin`을 통해 `app1`과 `app2`의 빌드 결과물을 `container/build`에서 관리함으로써 싱글 도메인으로 배포 가능하도록 구현 (app1과 app2를 호스팅하기 위한 각각 별도의 도메인 없어도 됨)
+- 그리고 이 과정에서 topological build를 위해 [Turborepo](https://turborepo.org) 도입
 
 ---
 
