@@ -50,6 +50,10 @@ module.exports = () => ({
           singleton: true,
           requiredVersion: dependencies.recoil,
         },
+        '@module-federation/store': {
+          singleton: true,
+          requiredVersion: '1.0.0',
+        },
       },
     }),
   ],
