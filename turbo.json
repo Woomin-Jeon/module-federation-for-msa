@@ -1,0 +1,21 @@
+{
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "build:container": {
+      "dependsOn": ["build:app1", "build:app2"],
+      "outputs": ["build/**"],
+      "cache": true
+    },
+    "build:app1": {
+      "outputs": ["build/**"],
+      "cache": true
+    },
+    "build:app2": {
+      "outputs": ["build/**"],
+      "cache": true
+    }
+  }
+}
