@@ -1,80 +1,47 @@
-import styled from '@emotion/styled';
-import React, { Suspense, useState } from 'react';
-import { countAtom } from '@module-federation/store';
-import { useRecoilState } from 'recoil';
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from 'react-router-dom';
 
-const RemoteApp1 = React.lazy(() => import('app1/App1'));
-const RemoteApp2 = React.lazy(() => import('app2/App2'));
+import Content from '@src/components/Content';
+import { RemoteApp1, RemoteApp2 } from '@src/components/RemotePages';
+import styled from '@emotion/styled';
 
 const App: React.FC = () => {
   console.log('container rendered');
 
-  const [localState, setLocalState] = useState(0);
-  const [globalCountState, setGlobalCountState] = useRecoilState(countAtom);
-
-  const handleLocalState = () => {
-    setLocalState((prev) => prev + 1);
-  };
-
-  const handleGlobalState = () => {
-    setGlobalCountState((prev) => prev + 1);
-  };
-
   return (
     <div>
       <h1>App - Container</h1>
-      <Flex>
-        <StateSection>
-          <h3>{`Global State: ${globalCountState}`}</h3>
-          <button type="button" onClick={handleGlobalState}>+1</button>
-        </StateSection>
-        <StateSection>
-          <h3>{`Container LocalState: ${localState}`}</h3>
-          <button type="button" onClick={handleLocalState}>+1</button>
-        </StateSection>
-      </Flex>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <Flex>
-          <RemoteAppSection>
-            <h2>Remote App 1</h2>
-            <RemoteApp1
-              containerLocalState={localState}
-              handleContainerLocalState={handleLocalState}
-            />
-          </RemoteAppSection>
+      <BrowserRouter>
+        <Nav>
+          <Link to="/">container</Link>
+          <Link to="/app1">app1</Link>
+          <Link to="/app2">app2</Link>
+        </Nav>
 
-          <RemoteAppSection>
-            <h2>Remote App 2</h2>
-            <RemoteApp2
-              containerLocalState={localState}
-              handleContainerLocalState={handleLocalState}
-            />
-          </RemoteAppSection>
-        </Flex>
-      </Suspense>
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path="/app1" element={<RemoteApp1 />} />
+          <Route path="/app2" element={<RemoteApp2 />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
 
-const Flex = styled.div`
+const Nav = styled.div`
   display: flex;
-  align-items: center;
-`;
-const RemoteAppSection = styled.div`
   padding: 16px;
-  border: 1px solid black;
-  border-radius: 8px;
-  margin: 16px;
-  width: 400px;
-  height: 800px;
-`;
-const StateSection = styled.section`
-  padding: 16px;
-  margin: 16px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-  width: max-content;
+  
+  & > a {
+    display: block;
+    margin-right: 10px;
+  }
 `;
 
 export default App;

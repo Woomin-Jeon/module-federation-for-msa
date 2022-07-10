@@ -41,7 +41,14 @@ const MODULE_FEDERATION_PLUGIN_CONFIG = (mode) => {
       },
       recoil: {
         singleton: true,
-        requiredVersion: dependencies.recoil,
+      },
+      'react-router': {
+        singleton: true,
+        requiredVersion: dependencies['react-router'],
+      },
+      'react-router-dom': {
+        singleton: true,
+        requiredVersion: dependencies['react-router-dom'],
       },
       '@module-federation/store': {
         singleton: true,
