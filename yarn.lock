@@ -1648,6 +1648,7 @@ __metadata:
     html-webpack-plugin: ^5.5.0
     react: ^18.1.0
     react-dom: ^18.1.0
+    react-router: ^6.3.0
     react-router-dom: ^6.3.0
     recoil: ^0.7.2
     typescript: ^4.5.2
@@ -1683,6 +1684,7 @@ __metadata:
     html-webpack-plugin: ^5.5.0
     react: ^18.1.0
     react-dom: ^18.1.0
+    react-router: ^6.3.0
     react-router-dom: ^6.3.0
     recoil: ^0.7.2
     typescript: ^4.5.2
@@ -1722,6 +1724,7 @@ __metadata:
     html-webpack-plugin: ^5.5.0
     react: ^18.1.0
     react-dom: ^18.1.0
+    react-router: ^6.3.0
     react-router-dom: ^6.3.0
     recoil: ^0.7.2
     typescript: ^4.5.2
@@ -6223,7 +6226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router@npm:6.3.0":
+"react-router@npm:6.3.0, react-router@npm:^6.3.0":
   version: 6.3.0
   resolution: "react-router@npm:6.3.0"
   dependencies:
